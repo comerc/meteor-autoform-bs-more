@@ -1,7 +1,7 @@
 Package.describe({
   name: 'comerc:autoform-bs-more',
   summary: 'More Bootstrap features for AutoForm',
-  version: '1.0.1',
+  version: '1.0.2',
   git: 'https://github.com/comerc/meteor-autoform-bs-more.git'
 });
 
