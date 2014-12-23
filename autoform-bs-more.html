@@ -1,0 +1,52 @@
+<!-- TODO: https://github.com/aldeed/meteor-autoform/issues/511 -->
+<template name="afPanel">
+  <div class="panel panel-default">
+    {{#with afFieldLabelText name=this.name}}
+    <div class="panel-heading">
+      <h3 class="panel-title">{{this}}</h3>
+    </div>
+    {{/with}}
+    <div class="panel-body">
+      {{> Template.contentBlock}}
+    </div>
+  </div>
+</template>
+
+<!-- TODO: https://github.com/aldeed/meteor-autoform/issues/516 -->
+<template name="extend">
+  {{> Template.contentBlock data}}
+</template>
+
+<template name="modalForm">
+  {{#with innerContext}}
+  <div class="modal" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        {{#autoForm this.mfAutoFormContext}}
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="{{this.atts.id}}Label">{{this.atts.label}}</h4>
+          </div>
+          <div class="modal-body">
+            {{#with outerContext}}
+            {{> Template.contentBlock this}}
+            {{/with}}
+          </div>
+          {{#if mfShouldRenderButton}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" name="submit" class="btn btn-primary">
+            {{#with this.atts.buttonContent}}
+            {{this}}
+            {{else}}
+            Submit
+            {{/with}}
+            </button>
+          </div>
+          {{/if}}
+        {{/autoForm}}
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>
