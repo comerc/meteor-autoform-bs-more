@@ -32,13 +32,21 @@ Template.modalForm.helpers({
   },
   innerContext: function() {
     var atts = this;
-    var mfAutoFormContext = _.omit(atts, "buttonContent", "label");
-    var mfShouldRenderButton = (atts.buttonContent !== false && atts.type !== "readonly" && atts.type !== "disabled");
-    return {
-      mfAutoFormContext: mfAutoFormContext,
-      atts: atts,
-      mfShouldRenderButton: mfShouldRenderButton
-    };
+    var mfAutoFormContext = _.omit(atts, "buttonContent", "label", "unmodal");
+    if (atts.unmodal) {
+      mfAutoFormContext = _.omit(mfAutoFormContext, "readonly", "disabled");
+      return {
+        mfAutoFormContext: mfAutoFormContext,
+        atts: atts
+      };
+    } else {
+      var mfShouldRenderButton = (atts.buttonContent !== false && atts.type !== "readonly" && atts.type !== "disabled");
+      return {
+        mfAutoFormContext: mfAutoFormContext,
+        atts: atts,
+        mfShouldRenderButton: mfShouldRenderButton
+      };
+    }
   }
 });
 

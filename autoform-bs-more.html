@@ -19,6 +19,13 @@
 
 <template name="modalForm">
   {{#with innerContext}}
+  {{#if this.atts.unmodal}}
+  {{#autoForm this.mfAutoFormContext}}
+    {{#with outerContext}}
+    {{> Template.contentBlock this}}
+    {{/with}}
+  {{/autoForm}}
+  {{else}}
   <div class="modal" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -48,5 +55,6 @@
       </div>
     </div>
   </div>
+  {{/if}}
   {{/with}}
 </template>
