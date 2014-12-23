@@ -1,2 +1,2 @@
-meteor-autoform-bs-more
+comerc:autoform-bs-more
 =======================
