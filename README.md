@@ -1,7 +1,7 @@
 comerc:autoform-bs-more
 =======================
 
-Some elements for [AutoForm](https://github.com/aldeed/meteor-autoform) has been released:
+Some elements for [AutoForm](https://github.com/aldeed/meteor-autoform/) with [Bootstrap](http://getbootstrap.com/) has been released:
 ```jade
 +modalForm 
 +afPanel
