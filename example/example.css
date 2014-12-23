@@ -1,0 +1,10 @@
+/* CSS declarations go here */
+/* FIXME: https://github.com/aldeed/meteor-autoform/issues/509 */
+.checkbox-inline {
+	margin-right: 10px;
+}
+.checkbox-inline+.checkbox-inline {
+	margin-left: 0px;
+}
+/* FIXME: https://github.com/eternicode/bootstrap-datepicker/issues/1129 */
+.datepicker { z-index:9999 !important; }

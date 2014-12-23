@@ -1,0 +1,56 @@
+head
+  meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  title Demo for comerc:autoform-bs-more
+  link(href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
+  link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet")
+  script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript")
+  link(href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.css" rel="stylesheet")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js" type="text/javascript")
+  //- TODO: load from CDN
+  link(href="//fk.github.io/select2-bootstrap-css/css/select2-bootstrap.css" rel="stylesheet")
+  //- TODO: select in comerc:lang
+  //- script(src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2_locale_ru.js" type="text/javascript")
+  //- TODO: https://developers.google.com/maps/documentation/javascript/basics#Localization
+  script(src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false" type="text/javascript")
+  link(href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" rel="stylesheet")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js" type="text/javascript")
+  //- TODO: select in comerc:lang
+  //- script(src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/locales/bootstrap-datepicker.ru.min.js" type="text/javascript")
+
+body
+  #content-wrapper.container-fluid
+    .row
+      .col-lg-3
+      .col-lg-5
+        +example
+        
+      .col-lg-4
+
+template(name="example")
+  h3 Demo for <a href="https://github.com/comerc/meteor-autoform-bs-more"><i class="fa fa-github-alt">&nbsp;comerc:autoform-bs-more</i></a>
+  //- magic, just replace autoForm to modalForm
+  +modalForm id="demo" label="autoForm as modal" buttonContent="Custom text" schema="Schema" class="form-horizontal"
+    //- if you want quickForm functionality
+    //- +afQuickFields fields="address" 
+    .description(style="padding-bottom:30px") <i class="fa fa-hand-o-right">&nbsp;see comments in source code</i>
+    //- magic, from now all children have this attributes
+    +extend afFormGroup-label-class="col-sm-3" afFormGroup-input-col-class="col-sm-9"
+      //- show label of object field and change fields order for example 
+      +afPanel name="address"
+        +afQuickField name="address.street"
+        +afQuickField name="address.postal"
+      +afQuickField name="fieldOne"
+      //- magic, value attr as function
+      +if afFieldValueContains2 name="fieldOne" value=requiredIfOne
+        +afQuickField name="fieldTwo"
+      //- it is work fine, enjoy
+      .hint(style="text-align:right; width:100%") <a href="https://github.com/comerc/meteor-autoform-placecomplete/"><i class="fa fa-github-alt">&nbsp;comerc:autoform-placecomplete</i></a>
+      +afQuickField name="place"
+      //- it is work fine, enjoy
+      .hint(style="text-align:right; width:100%") <a href="https://github.com/aldeed/meteor-autoform-bs-datepicker/"><i class="fa fa-github-alt">&nbsp;aldeed:autoform-bs-datepicker</i></a>
+      +afQuickField name="birthday"
+      //- it is work fine, enjoy
+      .hint(style="text-align:right; width:100%") <a href="https://github.com/aldeed/meteor-autoform-select2/"><i class="fa fa-github-alt">&nbsp;aldeed:autoform-select2</i></a>
+      +afQuickField name="hobby"
+  button(type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#demo") Launch demo modal
