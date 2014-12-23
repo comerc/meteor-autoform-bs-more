@@ -16,6 +16,7 @@
     type: Date
     autoform:
       type: "bootstrap-datepicker" # it work on modalForm
+      autocomplete: "off"
       datePickerOptions:
         autoclose: true
   "hobby":
