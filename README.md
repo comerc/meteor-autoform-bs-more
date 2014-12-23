@@ -3,10 +3,10 @@ comerc:autoform-bs-more
 
 Some elements for [Meteor](https://www.meteor.com/) [AutoForm](https://github.com/aldeed/meteor-autoform/) with [Bootstrap](http://getbootstrap.com/):
 ```jade
-+modalForm ["label", "buttonContent", and all attrs of autoForm)]
-+afPanel ["name" of object field]
-+extend [any attrs for template context]
-+afFieldValueContains2 ["value" as function]
++modalForm //- ["label", "buttonContent", and all attrs of autoForm)]
++afPanel //- ["name" of object field]
++extend //- [any attrs for template context]
++afFieldValueContains2 //- ["value" as function]
 ```
 EXAMPLE
 -------
