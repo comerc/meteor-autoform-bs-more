@@ -3,7 +3,9 @@ comerc:autoform-bs-more
 
 Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://github.com/aldeed/meteor-autoform/) with [Bootstrap](http://getbootstrap.com/):
 ```jade
-+modalForm //- ["unmodal", "label", "buttonContent", "readonly", "disabled" and all attrs of autoForm)]
++modalForm //- ["unmodal", "label", "buttonContent", "readonly", "disabled"]
+//- *omit declared attrs if unmodal
+//- *available all attrs of autoForm
 +extend //- [any attrs for template context]
 +afPanel //- ["name" of object field]
 +afFieldValueContains2 //- ["value" as function]
