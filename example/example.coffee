@@ -20,15 +20,13 @@
       datePickerOptions:
         autoclose: true
   "hobby":
-    type: String
+    type: [String]
     autoform:
-      type: "select2" # it work on modalForm
-      firstOption: false
+      type: "selectize" # it work on modalForm
+      multiple: true
+      placeholder: "Select multiple"
       options: ->
         [
-          label: ""
-          value: ""
-        ,
           label: "Bitches"
           value: "b"
         ,

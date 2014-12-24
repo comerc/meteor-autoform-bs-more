@@ -11,5 +11,7 @@ aldeed:simple-schema
 aldeed:autoform
 aldeed:autoform-bs-datepicker
 comerc:autoform-placecomplete
-aldeed:autoform-select2
 comerc:autoform-bs-more
+comerc:autoform-selectize
+chhib:selectize-bootstrap-3
+jeremy:selectize
