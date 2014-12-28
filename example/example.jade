@@ -33,7 +33,7 @@ template(name="example")
   +modalForm id="demo" label="autoForm as modal" buttonContent="Custom text" schema="Schema" class="form-horizontal"
     //- if you want quickForm functionality
     //- +afQuickFields fields="address" 
-    .description(style="padding-bottom:30px") <a href="https://github.com/comerc/meteor-autoform-bs-more/blob/master/example/example.jade#L32-L55"><i class="fa fa-hand-o-right">&nbsp;see comments in source code</i></a>
+    .description <a href="https://github.com/comerc/meteor-autoform-bs-more/blob/master/example/example.jade#L32-L55"><i class="fa fa-hand-o-right">&nbsp;see comments in source code</i></a>
     //- magic, from now all children have this attributes
     +extend afFormGroup-label-class="col-sm-3" afFormGroup-input-col-class="col-sm-9"
       //- show label of object field and change fields order for example 
@@ -45,12 +45,12 @@ template(name="example")
       +if afFieldValueContains2 name="fieldOne" value=requiredIfOne
         +afQuickField name="fieldTwo"
       //- it is work fine, enjoy
-      .hint(style="text-align:right; width:100%") <a href="https://github.com/comerc/meteor-autoform-placecomplete/"><i class="fa fa-github-alt">&nbsp;comerc:autoform-placecomplete</i></a>
+      .hint <a href="https://github.com/comerc/meteor-autoform-placecomplete/"><i class="fa fa-github-alt">&nbsp;comerc:autoform-placecomplete</i></a>
       +afQuickField name="place"
       //- it is work fine, enjoy
-      .hint(style="text-align:right; width:100%") <a href="https://github.com/aldeed/meteor-autoform-bs-datepicker/"><i class="fa fa-github-alt">&nbsp;aldeed:autoform-bs-datepicker</i></a>
+      .hint <a href="https://github.com/aldeed/meteor-autoform-bs-datepicker/"><i class="fa fa-github-alt">&nbsp;aldeed:autoform-bs-datepicker</i></a>
       +afQuickField name="birthday"
       //- it is work fine, enjoy
-      .hint(style="text-align:right; width:100%") <a href="https://github.com/comerc/meteor-autoform-selectize/"><i class="fa fa-github-alt">&nbsp;comerc:autoform-selectize</i></a>
+      .hint <a href="https://github.com/comerc/meteor-autoform-selectize/"><i class="fa fa-github-alt">&nbsp;comerc:autoform-selectize</i></a>
       +afQuickField name="hobby"
   button(type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#demo") Launch demo modal
