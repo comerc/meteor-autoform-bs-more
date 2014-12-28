@@ -15,6 +15,20 @@ Template.registerHelper("afFieldValueContains2", function autoFormFieldValueCont
   return _.isArray(currentValue) && _.contains(currentValue, options.value);
 });
 
+Template.registerHelper('afFieldIsInvalid2', function autoFormFieldIsInvalid2(options) {
+  options = parseOptions(options, 'afFieldIsInvalid');
+  var fieldList = options.fields;
+  if (fieldList) {
+    fieldList = AutoForm.Utility.stringToArray(fieldList, 'AutoForm: fields attribute must be an array or a string containing a comma-delimited list of fields');
+    for (var i = 0; i < fieldList.length; i++) {
+      if (options.ss.namedContext(options.formId).keyIsInvalid(fieldList[i])) {
+        return true;
+      }
+    }
+  }
+  return options.ss.namedContext(options.formId).keyIsInvalid(options.name);
+});
+
 var parseOptions = function(options, helperName) {
   var afContext, hash;
   hash = (options || {}).hash || {};

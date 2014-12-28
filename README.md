@@ -9,6 +9,7 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 +extend //- [any attrs for template context]
 +afPanel //- ["name" of object field]
 +afFieldValueContains2 //- ["value" as function]
++afFieldIsInvalid2 //- ["name" or "fields"]
 ```
 EXAMPLE
 -------
