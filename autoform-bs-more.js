@@ -79,5 +79,4 @@ Template.modalForm.rendered = function() {
       AutoForm.resetForm(id);
     }
   });
-  // TODO: http://getbootstrap.com/javascript/#buttons-stateful - does not work
 };
