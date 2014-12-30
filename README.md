@@ -3,7 +3,8 @@ comerc:autoform-bs-more
 
 Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://github.com/aldeed/meteor-autoform/) with [Bootstrap](http://getbootstrap.com/):
 ```jade
-+modalForm //- ["unmodal", "label", "buttonContent", "dialogSize", "fade", "readonly", "disabled"]
++modalForm 
+//- ["unmodal", "label", "buttonContent", "dialogSize", "fade", "readonly", "disabled"]
 //- *omit declared attrs if unmodal
 //- *available all attrs of autoForm
 //- *attr "modalSize" is optional, may be: "lg" or "sm"
