@@ -26,8 +26,8 @@
     {{/with}}
   {{/autoForm}}
   {{else}}
-  <div class="modal" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
-    <div class="modal-dialog">
+  <div class="modal {{this.atts.fade}}" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
+    <div class="modal-dialog {{this.atts.dialogSize}}">
       <div class="modal-content">
         {{#autoForm this.mfAutoFormContext}}
           <div class="modal-header">

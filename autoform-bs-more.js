@@ -46,7 +46,7 @@ Template.modalForm.helpers({
   },
   innerContext: function() {
     var atts = this;
-    var mfAutoFormContext = _.omit(atts, "buttonContent", "label", "unmodal");
+    var mfAutoFormContext = _.omit(atts, "buttonContent", "label", "unmodal", "dialogSize", "fade");
     if (atts.unmodal) {
       mfAutoFormContext = _.omit(mfAutoFormContext, "readonly", "disabled");
       return {
@@ -54,6 +54,10 @@ Template.modalForm.helpers({
         atts: atts
       };
     } else {
+      if (atts.dialogSize) {
+        atts.dialogSize = "modal-" + atts.dialogSize;
+      }
+      atts.fade = atts.fade ? "fade" : "";
       var mfShouldRenderButton = (atts.buttonContent !== false && atts.type !== "readonly" && atts.type !== "disabled");
       return {
         mfAutoFormContext: mfAutoFormContext,
@@ -64,6 +68,7 @@ Template.modalForm.helpers({
   }
 });
 
+// TODO: dialogSize (modal-lg, modal-sm)
 Template.modalForm.rendered = function() {
   var id = this.data.id;
   var $element = this.$("#" + id);
