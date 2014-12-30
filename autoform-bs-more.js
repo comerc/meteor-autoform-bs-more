@@ -85,4 +85,5 @@ Template.modalForm.rendered = function() {
     }
   });
   // TODO: http://getbootstrap.com/javascript/#buttons-stateful - does not work
+  // TODO: AutoForm is disabling submit button for this case?
 };
