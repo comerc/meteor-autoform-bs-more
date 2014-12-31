@@ -68,7 +68,6 @@ Template.modalForm.helpers({
   }
 });
 
-// TODO: dialogSize (modal-lg, modal-sm)
 Template.modalForm.rendered = function() {
   var id = this.data.id;
   var $element = this.$("#" + id);
@@ -87,3 +86,34 @@ Template.modalForm.rendered = function() {
   // TODO: http://getbootstrap.com/javascript/#buttons-stateful - does not work
   // TODO: AutoForm is disabling submit button for this case?
 };
+
+Template["quickFields2"].helpers({
+  innerContext: function () {
+    var atts = this;
+    // from "extend" helper
+    var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
+    var fieldLabelAtts = {"class": forFormGroupAtts["label-class"]};
+    atts.idPrefix = this.idPrefix || forFormGroupAtts["id-prefix"] || "";
+    var fields = this.fields.split(",");
+    if (this.labelFor) {
+      fieldLabelAtts["for"] = this.labelFor;
+    } else {
+      fieldLabelAtts["for"] = atts.idPrefix + fields[0].replace(".", "-");
+    }
+    return {
+      atts: atts,
+      fieldLabelAtts: AutoForm.Utility.addClass(fieldLabelAtts, "control-label"),
+      rightColumnClass: forFormGroupAtts["input-col-class"] || "",
+      fields: fields
+    }
+  },
+  afFieldInputAtts: function (options) {
+    var name = "" + this;
+    var id = options.hash.atts.idPrefix + name.replace(".", "-");
+    return {
+      id: id,
+      name: name,
+      class: "form-control"
+    }
+  }
+});

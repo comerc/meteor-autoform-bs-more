@@ -58,3 +58,17 @@
   {{/if}}
   {{/with}}
 </template>
+
+<template name="quickFields2">
+  <div class="form-group{{#if afFieldIsInvalid2 fields=fields}} has-error{{/if}}">
+    {{#with innerContext}}
+    <label {{this.fieldLabelAtts}}>{{#if ../labelText}}{{../labelText}}{{/if}}</label>
+    <div class="{{this.rightColumnClass}}">
+      {{#each this.fields}}{{> afFieldInput afFieldInputAtts atts=../atts}}{{/each}}
+      <span class="help-block">
+        {{#each this.fields}}<div>{{{afFieldMessage name=this}}}</div>{{/each}}
+      </span>
+    </div>
+    {{/with}}
+  </div>
+</template>
