@@ -91,19 +91,31 @@ Template.modalForm.rendered = function() {
   // TODO: AutoForm is disabling submit button for this case?
 };
 
-Template["quickFields2"].helpers({
+Template["afQuickField2"].helpers({
   innerContext: function () {
     // from "extendFormGroupAttrs" helper
     var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
     var atts = {
       "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
     };
-    var fields = this.fields.split(",");
-    var fieldLabelAtts = {class: forFormGroupAtts["label-class"]};
-    if (this["label-for"]) {
-      fieldLabelAtts.for = atts["id-prefix"] + this["label-for"].replace(".", "-");
+    var fields;
+    if (this.name) {
+      fields = [this.name];
     } else {
-      fieldLabelAtts.for = atts["id-prefix"] + fields[0].replace(".", "-");
+      fields = this.fields.split(",");
+    }
+    var fieldLabelAtts = {class: forFormGroupAtts["label-class"]};
+    var labelForMode = "for";
+    if (this.checkbox) {
+      _.extend(atts, {checkbox: true});
+      if (this.checkbox === "focus") {
+        labelForMode = "focus";
+      }
+    }
+    if (this["label-for"]) {
+      fieldLabelAtts[labelForMode] = atts["id-prefix"] + this["label-for"].replace(".", "-");
+    } else {
+      fieldLabelAtts[labelForMode] = atts["id-prefix"] + fields[0].replace(".", "-");
     }
     return {
       atts: atts,
@@ -119,7 +131,13 @@ Template["quickFields2"].helpers({
     return {
       id: id,
       name: name,
-      class: "form-control"
+      class: options.hash.atts.checkbox ? "" : "form-control"
     }
+  }
+});
+
+Template["afQuickField2"].events({
+  "click label[focus]": function (event) {
+    $("input#" + $(event.toElement).attr("focus")).focus();
   }
 });

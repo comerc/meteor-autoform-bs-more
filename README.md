@@ -12,7 +12,7 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 +afPanel //- ["name" of object field]
 +afFieldValueContains2 //- ["value" as function]
 +afFieldIsInvalid2 //- ["name" or "fields"]
-+quickFields2 //- ["id-prefix", "label-for", "label-text", "fields"]
++afQuickField2 //- ["id-prefix", "label-for", "label-text", "name", "fields", "checkbox"]
 ```
 EXAMPLE
 -------
