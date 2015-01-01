@@ -60,15 +60,19 @@
 </template>
 
 <template name="afQuickField2">
-  <div class="form-group{{#if afFieldIsInvalid2 fields=fields}} has-error{{/if}}">
-    {{#with innerContext}}
+  {{#with innerContext}}
+  <div class="form-group{{#if afFieldIsInvalid2 fields=../fields}} has-error{{/if}}">
     <label {{this.fieldLabelAtts}}>{{this.fieldLabelText}}</label>
     <div class="{{this.rightColumnClass}}">
+      {{#if this.contentBlock}}
+      {{> Template.contentBlock}}
+      {{else}}
       {{#each this.fields}}{{> afFieldInput afFieldInputAtts atts=../atts}}{{/each}}
+      {{/if}}
       <span class="help-block">
         {{#each this.fields}}<div>{{{afFieldMessage name=this}}}</div>{{/each}}
       </span>
     </div>
-    {{/with}}
   </div>
+  {{/with}}
 </template>

@@ -93,7 +93,7 @@ Template.modalForm.rendered = function() {
 
 Template["afQuickField2"].helpers({
   innerContext: function () {
-    // from "extendFormGroupAttrs" helper
+    // atts from "extendFormGroupAttrs" helper
     var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
     var atts = {
       "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
@@ -112,17 +112,18 @@ Template["afQuickField2"].helpers({
         labelForMode = "focus";
       }
     }
-    if (this["label-for"]) {
-      fieldLabelAtts[labelForMode] = atts["id-prefix"] + this["label-for"].replace(".", "-");
+    if (this["for"]) {
+      fieldLabelAtts[labelForMode] = atts["id-prefix"] + this["for"].replace(".", "-");
     } else {
       fieldLabelAtts[labelForMode] = atts["id-prefix"] + fields[0].replace(".", "-");
     }
     return {
       atts: atts,
-      fieldLabelText: this["label-text"] || "",
+      fieldLabelText: this["label"] || "",
       fieldLabelAtts: AutoForm.Utility.addClass(fieldLabelAtts, "control-label"),
       rightColumnClass: forFormGroupAtts["input-col-class"] || "",
-      fields: fields
+      fields: fields,
+      contentBlock: this["content"] || false
     }
   },
   afFieldInputAtts: function (options) {
