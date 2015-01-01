@@ -93,7 +93,7 @@ Template.modalForm.rendered = function() {
 
 Template["quickFields2"].helpers({
   innerContext: function () {
-    // from "extend" helper
+    // from "extendFormGroupAttrs" helper
     var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
     var atts = {
       "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
