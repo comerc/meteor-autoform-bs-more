@@ -14,6 +14,7 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 +afFieldIsInvalid2 //- ["name" or "fields"]
 +afQuickField2
 //- ["id-prefix", "label", "for", "name" or "fields", "checkbox", "content"]
++afFieldInput2
 ```
 EXAMPLE
 -------

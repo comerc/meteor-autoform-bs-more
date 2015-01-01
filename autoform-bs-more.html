@@ -76,3 +76,9 @@
   </div>
   {{/with}}
 </template>
+
+<template name="afFieldInput2">
+  {{#with innerContext}}
+    {{> afFieldInput this}}
+  {{/with}}
+</template>

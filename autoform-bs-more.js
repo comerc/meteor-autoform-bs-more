@@ -105,18 +105,13 @@ Template["afQuickField2"].helpers({
       fields = this.fields.split(",");
     }
     var fieldLabelAtts = {class: forFormGroupAtts["label-class"]};
-    var labelForMode = "for";
-    if (this.checkbox) {
-      _.extend(atts, {checkbox: true});
-      if (this.checkbox === "focus") {
-        labelForMode = "focus";
-      }
-    }
+    var labelForMode = this.checkbox ? "focus" : "for";
     if (this["for"]) {
       fieldLabelAtts[labelForMode] = atts["id-prefix"] + this["for"].replace(".", "-");
     } else {
       fieldLabelAtts[labelForMode] = atts["id-prefix"] + fields[0].replace(".", "-");
     }
+    atts.class = this.class;
     return {
       atts: atts,
       fieldLabelText: this["label"] || "",
@@ -132,7 +127,8 @@ Template["afQuickField2"].helpers({
     return {
       id: id,
       name: name,
-      class: options.hash.atts.checkbox ? "" : "form-control"
+      template: "bootstrap3",
+      class: options.hash.atts.class
     }
   }
 });
@@ -140,5 +136,13 @@ Template["afQuickField2"].helpers({
 Template["afQuickField2"].events({
   "click label[focus]": function (event) {
     $("input#" + $(event.toElement).attr("focus")).focus();
+  }
+});
+
+Template["afFieldInput2"].helpers({
+  innerContext: function () {
+    var atts = this;
+    atts.template = "bootstrap3";
+    return atts;
   }
 });
