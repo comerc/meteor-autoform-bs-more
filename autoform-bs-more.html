@@ -13,7 +13,7 @@
 </template>
 
 <!-- TODO: https://github.com/aldeed/meteor-autoform/issues/516 -->
-<template name="extend">
+<template name="extendFormGroupAttrs">
   {{> Template.contentBlock data}}
 </template>
 
@@ -62,7 +62,7 @@
 <template name="quickFields2">
   <div class="form-group{{#if afFieldIsInvalid2 fields=fields}} has-error{{/if}}">
     {{#with innerContext}}
-    <label {{this.fieldLabelAtts}}>{{#if ../labelText}}{{../labelText}}{{/if}}</label>
+    <label {{this.fieldLabelAtts}}>{{this.fieldLabelText}}</label>
     <div class="{{this.rightColumnClass}}">
       {{#each this.fields}}{{> afFieldInput afFieldInputAtts atts=../atts}}{{/each}}
       <span class="help-block">

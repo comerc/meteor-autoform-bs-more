@@ -1,6 +1,10 @@
-Template.extend.helpers({
+Template.extendFormGroupAttrs.helpers({
   data: function() {
-    return _.extend(this, Template.parentData(1));
+    var atts = {};
+    _.each(this, function (val, key) {
+      atts["afFormGroup-" + key] = val;
+    });
+    return _.extend(atts, Template.parentData(1));
   }
 });
 
@@ -89,19 +93,21 @@ Template.modalForm.rendered = function() {
 
 Template["quickFields2"].helpers({
   innerContext: function () {
-    var atts = this;
     // from "extend" helper
     var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
-    var fieldLabelAtts = {"class": forFormGroupAtts["label-class"]};
-    atts.idPrefix = this.idPrefix || forFormGroupAtts["id-prefix"] || "";
+    var atts = {
+      "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
+    };
     var fields = this.fields.split(",");
-    if (this.labelFor) {
-      fieldLabelAtts["for"] = this.labelFor;
+    var fieldLabelAtts = {class: forFormGroupAtts["label-class"]};
+    if (this["label-for"]) {
+      fieldLabelAtts.for = atts["id-prefix"] + this["label-for"].replace(".", "-");
     } else {
-      fieldLabelAtts["for"] = atts.idPrefix + fields[0].replace(".", "-");
+      fieldLabelAtts.for = atts["id-prefix"] + fields[0].replace(".", "-");
     }
     return {
       atts: atts,
+      fieldLabelText: this["label-text"] || "",
       fieldLabelAtts: AutoForm.Utility.addClass(fieldLabelAtts, "control-label"),
       rightColumnClass: forFormGroupAtts["input-col-class"] || "",
       fields: fields
@@ -109,7 +115,7 @@ Template["quickFields2"].helpers({
   },
   afFieldInputAtts: function (options) {
     var name = "" + this;
-    var id = options.hash.atts.idPrefix + name.replace(".", "-");
+    var id = options.hash.atts["id-prefix"] + name.replace(".", "-");
     return {
       id: id,
       name: name,
