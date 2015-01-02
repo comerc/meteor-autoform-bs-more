@@ -1,4 +1,3 @@
-<!-- TODO: https://github.com/aldeed/meteor-autoform/issues/511 -->
 <template name="afPanel">
   <div class="panel panel-default">
     {{#with afFieldLabelText name=this.name}}
@@ -12,8 +11,7 @@
   </div>
 </template>
 
-<!-- TODO: https://github.com/aldeed/meteor-autoform/issues/516 -->
-<template name="extendFormGroupAttrs">
+<template name="extendFormGroupAtts">
   {{> Template.contentBlock data}}
 </template>
 
@@ -61,7 +59,7 @@
 
 <template name="afQuickField2">
   {{#with innerContext}}
-  <div class="form-group{{#if afFieldIsInvalid2 fields=../fields}} has-error{{/if}}">
+  <div class="form-group{{#if afFieldIsInvalid2 fields=this.fieldsToString}} has-error{{/if}}">
     <label {{this.fieldLabelAtts}}>{{this.fieldLabelText}}</label>
     <div class="{{this.rightColumnClass}}">
       {{#if this.contentBlock}}

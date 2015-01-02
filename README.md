@@ -5,10 +5,10 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 ```jade
 +modalForm
 //- ["unmodal", "label", "buttonContent", "dialogSize", "fade", "readonly", "disabled"]
-//- *omit declared attrs if unmodal
-//- *available all attrs of autoForm
+//- *omit declared atts if unmodal
+//- *available all atts of autoForm
 //- *attr "modalSize" is optional, may be: "lg" or "sm"
-+extendFormGroupAttrs //- [any attrs for template context]
++extendFormGroupAtts //- [any atts for template context]
 +afPanel //- ["name" of object field]
 +afFieldValueContains2 //- ["value" as function]
 +afFieldIsInvalid2 //- ["name" or "fields"]

@@ -1,4 +1,6 @@
-Template.extendFormGroupAttrs.helpers({
+// TODO: https://github.com/aldeed/meteor-autoform/issues/511
+// TODO: https://github.com/aldeed/meteor-autoform/issues/516
+Template.extendFormGroupAtts.helpers({
   data: function() {
     var atts = {};
     _.each(this, function (val, key) {
@@ -41,6 +43,7 @@ var parseOptions = function(options, helperName) {
   return _.extend({}, afContext, hash);
 };
 
+// FIXME: https://github.com/twbs/bootstrap/issues/15483
 Template.modalForm.helpers({
   outerContext: function() {
     var outerContext = Template.parentData(3);
@@ -93,7 +96,7 @@ Template.modalForm.rendered = function() {
 
 Template["afQuickField2"].helpers({
   innerContext: function () {
-    // atts from "extendFormGroupAttrs" helper
+    // atts from "extendFormGroupAtts" helper
     var forFormGroupAtts = AutoForm.findAttributesWithPrefix("afFormGroup-");
     var atts = {
       "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
@@ -118,6 +121,7 @@ Template["afQuickField2"].helpers({
       fieldLabelAtts: AutoForm.Utility.addClass(fieldLabelAtts, "control-label"),
       rightColumnClass: forFormGroupAtts["input-col-class"] || "",
       fields: fields,
+      fieldsToString: fields.join(),
       contentBlock: this["content"] || false
     }
   },
