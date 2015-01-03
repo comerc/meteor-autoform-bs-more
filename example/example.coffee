@@ -53,7 +53,7 @@
       currentValue = @field("fieldOne").value
       customCondition = @definition.autoform.requiredIfOne(currentValue)
       # "required" if customCondition and not @isSet and (not @operator or (@value is null or @value is ""))
-      "required" if customCondition and not @value
+      "required" if not @value and customCondition
     autoform:
       type: "select-radio-inline"
       options: "allowed"

@@ -43,7 +43,7 @@ var parseOptions = function(options, helperName) {
   return _.extend({}, afContext, hash);
 };
 
-// FIXME: https://github.com/twbs/bootstrap/issues/15483
+// FIXME: wait for https://github.com/twbs/bootstrap/issues/15483
 Template.modalForm.helpers({
   outerContext: function() {
     var outerContext = Template.parentData(3);
