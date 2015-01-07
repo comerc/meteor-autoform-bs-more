@@ -50,6 +50,9 @@ Template["afQuickField2"].helpers({
     var atts = {
       "id-prefix": this["id-prefix"] || forFormGroupAtts["id-prefix"] || ""
     };
+    if (atts["id-prefix"]) {
+      atts["id-prefix"] += "-";
+    }
     var fields;
     if (this.name) {
       fields = [this.name];
@@ -57,7 +60,8 @@ Template["afQuickField2"].helpers({
       fields = this.fields.split(",");
     }
     var fieldLabelAtts = {class: forFormGroupAtts["label-class"]};
-    var labelForMode = this.checkbox ? "focus" : "for";
+    // TODO: labelForMode = focus - need for checkbox and contenteditable
+    var labelForMode = this.focus ? "focus" : "for";
     if (this["for"]) {
       fieldLabelAtts[labelForMode] = atts["id-prefix"] + this["for"].replace(".", "-");
     } else {
@@ -88,7 +92,7 @@ Template["afQuickField2"].helpers({
 
 Template["afQuickField2"].events({
   "click label[focus]": function (event) {
-    $("input#" + $(event.toElement).attr("focus")).focus();
+    $("#" + $(event.toElement).attr("focus")).focus();
   }
 });
 

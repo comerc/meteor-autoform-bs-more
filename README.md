@@ -13,7 +13,7 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 +afFieldValueContains2 //- ["value" as function]
 +afFieldIsInvalid2 //- ["name" or "fields"]
 +afQuickField2
-//- ["id-prefix", "label", "for", "name" or "fields", "checkbox", "content"]
+//- ["id-prefix", "label", "for", "name" or "fields", "focus", "content"]
 +afFieldInput2
 ```
 + input type `contenteditable2`
