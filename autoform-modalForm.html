@@ -1,0 +1,41 @@
+<template name="modalForm">
+  {{#with innerContext}}
+  {{#if this.atts.unmodal}}
+  {{#autoForm this.mfAutoFormContext}}
+    {{#with outerContext}}
+    {{> Template.contentBlock this}}
+    {{/with}}
+  {{/autoForm}}
+  {{else}}
+  <div class="modal {{this.atts.fade}}" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
+    <div class="modal-dialog {{this.atts.dialogSize}}">
+      <div class="modal-content">
+        {{#autoForm this.mfAutoFormContext}}
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="{{this.atts.id}}Label">{{this.atts.label}}</h4>
+          </div>
+          <div class="modal-body">
+            {{#with outerContext}}
+            {{> Template.contentBlock this}}
+            {{/with}}
+          </div>
+          {{#if mfShouldRenderButton}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" name="submit" class="btn btn-primary">
+            {{#with this.atts.buttonContent}}
+            {{this}}
+            {{else}}
+            Submit
+            {{/with}}
+            </button>
+          </div>
+          {{/if}}
+        {{/autoForm}}
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/with}}
+</template>
