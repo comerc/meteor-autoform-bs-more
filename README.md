@@ -7,8 +7,8 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 //- ["unmodal", "label", "buttonContent", "dialogSize", "fade", "readonly", "disabled"]
 //- *omit declared atts if unmodal
 //- *available all atts of autoForm
-//- *attr "modalSize" is optional, may be: "lg" or "sm"
-+extendFormGroupAtts //- [any atts for template context]
+//- *attr "dialogSize" is optional, may be: "lg" or "sm"
++extendFormGroupAtts //- ["id-prefix", "label-class", "input-col-class"]
 +afPanel //- ["name" of object field]
 +afFieldValueContains2 //- ["value" as function]
 +afFieldIsInvalid2 //- ["name" or "fields"]
@@ -16,6 +16,8 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 //- ["id-prefix", "label", "for", "name" or "fields", "checkbox", "content"]
 +afFieldInput2
 ```
++ input type `contenteditable2`
+
 EXAMPLE
 -------
 ##### LIVE DEMO
