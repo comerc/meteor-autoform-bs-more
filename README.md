@@ -16,7 +16,6 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 //- ["id-prefix", "label", "for", "name" or "fields", "focus", "content"]
 +afFieldInput2
 ```
-+ input type `contenteditable2`
 
 EXAMPLE
 -------
