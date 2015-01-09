@@ -67,7 +67,9 @@ Template["afQuickField2"].helpers({
     } else {
       fieldLabelAtts[labelForMode] = atts["id-prefix"] + fields[0].replace(".", "-");
     }
-    atts.class = this.class;
+    if (this.class) {
+      atts.class = this.class;
+    }
     return {
       atts: atts,
       fieldLabelText: this["label"] || "",
@@ -80,13 +82,15 @@ Template["afQuickField2"].helpers({
   },
   afFieldInputAtts: function (options) {
     var name = "" + this;
-    var id = options.hash.atts["id-prefix"] + name.replace(".", "-");
-    return {
-      id: id,
+    result = {
+      id: options.hash.atts["id-prefix"] + name.replace(".", "-"),
       name: name,
       template: "bootstrap3",
-      class: options.hash.atts.class
     }
+    if (options.hash.atts.class) {
+      result.class = options.hash.atts.class;
+    }
+    return result;
   }
 });
 

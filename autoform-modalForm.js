@@ -37,14 +37,16 @@ Template.modalForm.rendered = function() {
   hooks[id] = {
     onSuccess: function(operation, result, template) {
       $element.modal("hide");
+    },
+    onError: function(operation, error, template) {
+      setTimeout(function() {
+        $element.modal("handleUpdate");
+      }, 0);
     }
   };
   AutoForm.hooks(hooks);
-  $element.on("show.bs.modal", function(event) {
-    if (event.target.id === id) {
-      AutoForm.resetForm(id);
-    }
+  $element.on("show.bs.modal", function() {
+    AutoForm.resetForm(id);
   });
-  // TODO: http://getbootstrap.com/javascript/#buttons-stateful - does not work
-  // TODO: AutoForm is disabling submit button for this case?
+  // TODO: http://getbootstrap.com/javascript/#buttons-stateful
 };
