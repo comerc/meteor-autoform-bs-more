@@ -31,6 +31,9 @@ Template.modalForm.helpers({
 });
 
 Template.modalForm.rendered = function() {
+  if (this.data.unmodal) {
+    return;
+  }
   var id = this.data.id;
   var $element = this.$("#" + id);
   var hooks = {};
