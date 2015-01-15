@@ -49,7 +49,7 @@ Template.modalForm.rendered = function() {
   };
   AutoForm.hooks(hooks);
   // very slow execution
-  // $element.on("show.bs.modal", function() {
+  // $element.on("shown.bs.modal", function() {
   //   AutoForm.resetForm(id);
   // });
   // TODO: http://getbootstrap.com/javascript/#buttons-stateful

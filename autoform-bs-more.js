@@ -70,6 +70,9 @@ Template["afQuickField2"].helpers({
     if (this.class) {
       atts.class = this.class;
     }
+    if (this.tabIndex) {
+      atts.tabIndex = this.tabIndex;
+    }
     return {
       atts: atts,
       fieldLabelText: this["label"] || "",
@@ -89,6 +92,9 @@ Template["afQuickField2"].helpers({
     }
     if (options.hash.atts.class) {
       result.class = options.hash.atts.class;
+    }
+    if (options.hash.atts.tabIndex) {
+      result.tabIndex = options.hash.atts.tabIndex;
     }
     return result;
   }
