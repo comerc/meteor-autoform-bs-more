@@ -7,13 +7,13 @@
     {{/with}}
   {{/autoForm}}
   {{else}}
-  <div class="modal {{this.atts.fade}}" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}Label" aria-hidden="true">
+  <div class="modal {{this.atts.fade}}" id="{{this.atts.id}}" tabindex="-1" role="dialog" aria-labelledby="{{this.atts.id}}-label" aria-hidden="true">
     <div class="modal-dialog {{this.atts.dialogSize}}">
       <div class="modal-content">
         {{#autoForm this.mfAutoFormContext}}
           <div class="modal-header">
             <button type="button" tabindex="-1" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="{{this.atts.id}}Label">{{this.atts.label}}</h4>
+            <h4 class="modal-title" id="{{this.atts.id}}-label">{{this.atts.label}}</h4>
           </div>
           <div class="modal-body">
             {{#with outerContext}}

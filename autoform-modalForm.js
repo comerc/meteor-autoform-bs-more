@@ -9,6 +9,9 @@ Template.modalForm.helpers({
   innerContext: function() {
     var atts = this;
     var mfAutoFormContext = _.omit(atts, "buttonContent", "label", "unmodal", "dialogSize", "fade");
+    if (atts.tabIndex === false) {
+      delete mfAutoFormContext.tabIndex;
+    }
     if (atts.unmodal) {
       mfAutoFormContext = _.omit(mfAutoFormContext, "readonly", "disabled");
       return {

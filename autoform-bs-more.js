@@ -80,7 +80,7 @@ Template["afQuickField2"].helpers({
       rightColumnClass: forFormGroupAtts["input-col-class"] || "",
       fields: fields,
       fieldsToString: fields.join(),
-      contentBlock: this["content"] || false
+      contentBlock: this["content"] || false,
     }
   },
   afFieldInputAtts: function (options) {
