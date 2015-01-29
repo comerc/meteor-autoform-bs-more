@@ -1,4 +1,4 @@
-// FIXME: wait for https://github.com/twbs/bootstrap/issues/15483
+// FIXME: https://github.com/twbs/bootstrap/issues/15483 >>> https://github.com/darcyclarke/Watch.js
 Template.modalForm.helpers({
   outerContext: function() {
     var outerContext = Template.parentData(3);
