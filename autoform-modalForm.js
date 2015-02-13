@@ -44,11 +44,11 @@ Template.modalForm.rendered = function() {
     onSuccess: function(operation, result, template) {
       $element.modal("hide");
     },
-    onError: function(operation, error, template) {
-      setTimeout(function() {
-        $element.modal("handleUpdate");
-      }, 0);
-    }
+    // onError: function(operation, error, template) {
+    //   setTimeout(function() {
+    //     $element.modal("handleUpdate");
+    //   }, 0);
+    // }
   };
   AutoForm.hooks(hooks);
   // very slow execution

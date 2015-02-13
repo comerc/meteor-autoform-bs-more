@@ -1,7 +1,7 @@
 Package.describe({
   name: 'comerc:autoform-bs-more',
   summary: 'Some Bootstrap features for AutoForm (Modal, Panel and more)',
-  version: '1.5.10',
+  version: '1.5.11',
   git: 'https://github.com/comerc/meteor-autoform-bs-more.git'
 });
 
@@ -13,6 +13,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'autoform-bs-more.html',
     'autoform-bs-more.js',
+    'autoform-modalForm.css',
     'autoform-modalForm.html',
     'autoform-modalForm.js',
   ], 'client');
