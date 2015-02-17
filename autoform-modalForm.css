@@ -1,2 +1,11 @@
-/* https://github.com/twbs/bootstrap/issues/15483 */
-.modal-backdrop { position: fixed; bottom: 0; }
+/* BUGFIX: https://github.com/twbs/bootstrap/issues/15483 */
+.modal-backdrop:before {
+  background-color: #000;
+  content: '';
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
+}
