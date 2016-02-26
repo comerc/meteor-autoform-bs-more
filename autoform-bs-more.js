@@ -113,3 +113,10 @@ Template["afFieldInput2"].helpers({
     return atts;
   }
 });
+
+Template.registerHelper('showHelpBlock', function(field, value) {
+  Meteor.setTimeout(function() {
+    console.log($("input[name=\"" + field + "\"]").next());
+    return $("input[name=\"" + field + "\"]").next().text(value);
+  });
+});
