@@ -15,6 +15,7 @@ Some template elements for [Meteor](https://www.meteor.com/) [AutoForm](https://
 +afQuickField2
 //- ["id-prefix", "label", "for", "name" or "fields", "focus", "content"]
 +afFieldInput2
+{{showHelpBlock "filed" "value"}}
 ```
 
 EXAMPLE
